@@ -10,9 +10,12 @@ const Content = () => {
   const [isModal, setModal] = useState(null);
   const [isModalError, setModalError] = useState(null);
   const [seminars, setSeminars] = useState([]);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetchGetSeminars(setSeminars, setModalError);
+    setLoading(false);
   }, [isModal]);
 
   // Функция закрытие модалього окна
@@ -33,6 +36,10 @@ const Content = () => {
     event.stopPropagation();
     setModal({ modal: modal, id: id });
   };
+
+  // Если идёт загрузка, будет отображаться этот блок
+
+  if (isLoading) return <h2 className="content__title">Загрузка...</h2>;
 
   // Если семинаров нет, будет отображаться этот блок
 
