@@ -9,6 +9,8 @@ const ModalError = ({ isOpen, onClose }) => {
 
   const errorMessage = isOpen;
 
+  // Функция открытия модального окна
+
   const hendleClose = (event) => {
     event.stopPropagation();
     onClose();

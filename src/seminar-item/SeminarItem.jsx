@@ -24,7 +24,7 @@ const SeminarItem = ({
           <IoMdCreate className="seminar-item__icon" />
         </button>
         <button
-          onClick={(event) => openModal(event, "close", id)}
+          onClick={(event) => openModal(event, "delete", id)}
           className="seminar-item__btns seminar-item__btn-delete"
         >
           <MdDelete className="seminar-item__icon" />

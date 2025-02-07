@@ -16,6 +16,8 @@ const Form = ({ setModalError, id, onClose }) => {
     fetchGetSeminar(id, setFormData);
   }, [id]);
 
+  // Функция отправленя формы
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setBtnDisabled(true);
@@ -40,6 +42,8 @@ const Form = ({ setModalError, id, onClose }) => {
     }
   };
 
+  // Функция для события onChange
+
   const handleChange = (event) => {
     if (event.target.name === "date") {
       const formatDate = (dateString) => {
@@ -58,15 +62,21 @@ const Form = ({ setModalError, id, onClose }) => {
     }
   };
 
+  // Функция отмены отправки данных
+
   const onСancellation = (event) => {
     event.stopPropagation();
     onClose();
   };
 
+  // Функция для изменения формата даты
+
   const formatDate = () => {
     const [day, month, year] = formData.date.split(".");
     return `${year}-${month}-${day}`;
   };
+
+  // Отформатированная дата
 
   const formatedDate = formatDate();
 

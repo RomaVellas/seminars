@@ -15,18 +15,26 @@ const Content = () => {
     fetchGetSeminars(setSeminars, setModalError);
   }, [isModal]);
 
+  // Функция закрытие модалього окна
+
   const onCloseModal = () => {
     setModal(null);
   };
+
+  // Функция закрытия модалього окна с ошибкой
 
   const onCloseModalError = () => {
     setModalError(null);
   };
 
+  // Функция открытия модального окна
+
   const openModal = (event, modal, id) => {
     event.stopPropagation();
     setModal({ modal: modal, id: id });
   };
+
+  // Если семинаров нет, будет отображаться этот блок
 
   if (!seminars[0]) {
     return (
@@ -36,6 +44,8 @@ const Content = () => {
       </>
     );
   }
+
+  // Если семинары есть, будет отображаться этот блок
 
   return (
     <>

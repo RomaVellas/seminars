@@ -9,23 +9,24 @@ export default function Modal({ setModalError, isOpen, onClose }) {
   const [btnDisabled, setBtnDisabled] = useState(false);
   if (!isOpen) return null;
 
+  // Функция открытия модального окна
+
   const hendleClose = (event) => {
     event.stopPropagation();
     onClose();
   };
 
-  if (isOpen.modal === "close") {
+  // Если вызывается модальное окно для удаления семинара, будет отображаться этот блок
+
+  if (isOpen.modal === "delete") {
+    // Функция для удаления семинара
+
     const onDeleteSeminar = (event) => {
       event.stopPropagation();
       setBtnDisabled(true);
       featchDeleteSeminar(isOpen.id, setModalError);
       onClose();
       setBtnDisabled(false);
-    };
-
-    const onСancellation = (event) => {
-      event.stopPropagation();
-      onClose();
     };
 
     return (
@@ -48,7 +49,7 @@ export default function Modal({ setModalError, isOpen, onClose }) {
             </button>
             <button
               disabled={btnDisabled}
-              onClick={onСancellation}
+              onClick={hendleClose}
               className="modal__btn"
             >
               Отмена
@@ -58,6 +59,8 @@ export default function Modal({ setModalError, isOpen, onClose }) {
       </div>
     );
   }
+
+  // Если вызывается модальное окно для изменения семинара, будет отображаться этот блок
 
   if (isOpen.modal === "create") {
     return (

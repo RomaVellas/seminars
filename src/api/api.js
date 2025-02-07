@@ -1,5 +1,7 @@
 const API_URL = "http://localhost:3001/seminars/";
 
+// Запрос семинаров с сервера
+
 export const fetchGetSeminars = async (setSeminars, setModalError) => {
   try {
     const response = await fetch(API_URL);
@@ -15,6 +17,8 @@ export const fetchGetSeminars = async (setSeminars, setModalError) => {
     setModalError(error.message);
   }
 };
+
+// Запрос одного семинара с сервера
 
 export const fetchGetSeminar = async (id, setFormData) => {
   try {
@@ -34,6 +38,8 @@ export const fetchGetSeminar = async (id, setFormData) => {
     console.error("Ошибка при получении данных: ", error.message);
   }
 };
+
+// Запрос на изменение семинара на сервере
 
 export const fetchUpdateSeminar = async (id, data, setModalError) => {
   try {
@@ -58,6 +64,8 @@ export const fetchUpdateSeminar = async (id, data, setModalError) => {
     setModalError(error.message);
   }
 };
+
+// Запрос на удаление семинара на сервере
 
 export const featchDeleteSeminar = async (id, setModalError) => {
   try {
